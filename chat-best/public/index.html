@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Simples</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-view" class="view active">
+        <div class="form-container">
+            <h2>Login / Registro</h2>
+            <input type="text" id="username" placeholder="Nome de usuário">
+            <input type="password" id="password" placeholder="Senha">
+            <div class="buttons">
+                <button id="login-btn">Entrar</button>
+                <button id="register-btn">Registrar</button>
+            </div>
+            <p id="auth-error" class="error"></p>
+        </div>
+    </div>
+
+    <div id="chat-view" class="view">
+        <div class="sidebar">
+            <h3>Usuários Online</h3>
+            <ul id="user-list"></ul>
+            <button id="logout-btn">Sair</button>
+        </div>
+        <div class="main-chat">
+            <div id="welcome-message">
+                <h2>Bem-vindo, <span id="current-user-display"></span>!</h2>
+                <p>Selecione um usuário na lista para começar a conversar.</p>
+            </div>
+            <div id="chat-window" class="hidden">
+                <div class="chat-header">Conversando com <span id="chatting-with"></span></div>
+                <ul id="messages"></ul>
+                <form id="message-form">
+                    <input id="message-input" autocomplete="off" placeholder="Digite sua mensagem">
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>
